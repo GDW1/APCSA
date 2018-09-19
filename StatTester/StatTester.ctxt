@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=double\ getMean()
 comment5.params=
 comment5.target=double\ getMedian()
-numComments=6
+comment6.params=
+comment6.target=int[]\ getMode()
+numComments=7
