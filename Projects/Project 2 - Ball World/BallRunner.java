@@ -27,14 +27,15 @@ public class BallRunner
         boolean C1 = false;
         boolean C2 = false;
         BallBot ret = null;
+        BallRunner ballRunner = new BallRunner();
         for(int i = 0; i<ballBotArray.length; i++){
             BallBot otherBallBot = ballBotArray[i];
-            if(ballBot !=null && otherBallBot != ballBot){
-                double currentDistance = distanceBetweenPoints(ballBot.getPoint(), otherBallBot.getPoint());
+            if(ballBot !=null && otherBallBot != ballBot && otherBallBot != null){
+                double currentDistance = ballRunner.distanceBetweenPoints(ballBot.getPoint(), otherBallBot.getPoint());
                 if(currentDistance <= (ballBot.getRadius()+otherBallBot.getRadius())){
                     C1 = true;
                 }
-                double nextDistance = distanceBetweenPoints(ballBot.forwardPoint(), otherBallBot.getPoint());
+                double nextDistance = ballRunner.distanceBetweenPoints(ballBot.forwardPoint(), otherBallBot.getPoint());
                 if(nextDistance <= currentDistance){
                     C2=true;
                 }
@@ -61,14 +62,20 @@ public class BallRunner
        return ret;
     }
     public static void run(){
-        BallWorld ballWorld = new BallWorld(200,200);
+        BallWorld ballWorld = new BallWorld(700,700);
         TGPoint startpoint = new TGPoint(0,0);
-        BallBot[] ballArray = new BallBot[10];
+        BallBot[] ballArray = new BallBot[50];
         BallRunner ballRunner = new BallRunner();
+        int b;
         while(true){
             if(ballRunner.findFreeBallBotIndex(ballArray) < ballArray.length){
                if(ballRunner.entranceClear(ballArray, startpoint)){
-               ballArray[ballRunner.findFreeBallBotIndex(ballArray)] = new BallBot(ballWorld, startpoint, Math.random()*360, 25);
+               b =ballRunner.findFreeBallBotIndex(ballArray);
+               ballArray[b] = new BallBot(ballWorld, startpoint, Math.random()*360, (int)(Math.random() * 25));
+               if(ballArray[b] != null){
+                   ballArray[b].setPixelsPerSecond(100);
+                   ballArray[b].setColor((int)(Math.random() * 25));
+               }
             }}
             for(int a = 0; a<ballArray.length; a++){
                 if(ballArray[a] != null){
@@ -76,10 +83,10 @@ public class BallRunner
                         if(ballRunner.ballBotToBounceOff(ballArray[a], ballArray) == null){
                             ballArray[a].moveForward();
                        }else{
-                           ballArray[a].setHeading(Math.random()*360);
+                           ballArray[a].setHeading((Math.random()*300) + 90);
                        }
                     }else{
-                        ballArray[a].setHeading(Math.random()*360);
+                        ballArray[a].setHeading((Math.random()*300) + 90);
                     }
                 }
             }
