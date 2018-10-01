@@ -80,13 +80,13 @@ public class BallRunner
             for(int a = 0; a<ballArray.length; a++){
                 if(ballArray[a] != null){
                     if(ballArray[a].canMoveForward(ballWorld)){
-                        if(ballRunner.ballBotToBounceOff(ballArray[a], ballArray) == null){
+                       if(ballRunner.ballBotToBounceOff(ballArray[a], ballArray) == null){
                             ballArray[a].moveForward();
                        }else{
-                           ballArray[a].setHeading((Math.random()*300) + 90);
+                           ballArray[a].setHeading((Math.random()*360));
                        }
                     }else{
-                        ballArray[a].setHeading((Math.random()*300) + 90);
+                        ballArray[a].setHeading((Math.random()*360));
                     }
                 }
             }
