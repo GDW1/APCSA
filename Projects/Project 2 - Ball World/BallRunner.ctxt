@@ -1,16 +1,21 @@
 #BlueJ class context
 comment0.target=BallRunner
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ BallRunner\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ BallRunner\ class.\ This\ class\ creates\ a\ canvas\ and\ loads\ ball\ into\ it.\ that\ move\ and\ collides\r\n
 comment1.params=ballBotArray
 comment1.target=int\ findFreeBallBotIndex(BallBot[])
+comment1.text=\r\n\ This\ method\ uses\ a\ ball\ bot\ array\ to\ find\ where\ in\ said\ array\ an\ index\ ihas\ a\ value\ of\ null\ and\ has\ space\ for\ a\ ball\ to\ be\ lodaed\ in\r\n\ @param\ BallBot[]\ This\ is\ the\ array\ to\ be\ loaded\ in\r\n
 comment2.params=point1\ point2
 comment2.target=double\ distanceBetweenPoints(TGPoint,\ TGPoint)
+comment2.text=\r\n\ This\ method\ calculates\ the\ distance\ between\ two\ points\r\n
 comment3.params=ballBot\ ballBotArray
 comment3.target=BallBot\ ballBotToBounceOff(BallBot,\ BallBot[])
+comment3.text=\r\n\ Takes\ to\ ballBots\ in\ and\ returns\ the\ value\ of\ one\ of\ them\ to\ bounce\ off\ of\r\n
 comment4.params=ballBotArray\ entrancePoint
 comment4.target=boolean\ entranceClear(BallBot[],\ TGPoint)
+comment4.text=\r\n\ Checks\ if\ the\ entrance\ is\ clear\ by\ taking\ in\ an\ entrance\ point\ and\ a\ ballBot\r\n
 comment5.params=
 comment5.target=void\ run()
+comment5.text=\r\n\ This\ is\ the\ first\ method\ to\ run.\r\n
 comment6.params=
 comment6.target=void\ actOne()
 numComments=7
