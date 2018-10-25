@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Gibberish
+comment1.params=
+comment1.target=Gibberish()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Gibberish\r\n
+comment2.params=wordlist5000
+comment2.target=java.lang.String\ makeGibberish(WordList5000)
+numComments=3
