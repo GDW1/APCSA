@@ -34,11 +34,13 @@ public class Student
                middleName = name.substring(name.indexOf(" ", name.indexOf(", ") + 2));
             }
         }else{
-            int firstSpace =  name.indexOf(" ");
-            firstName = name.substring(0, firstSpace);
-            int secondSpace = name.indexOf(" ", firstSpace + 1);
-            middleName = name.substring(firstSpace + 1, secondSpace);
-            lastName = name.substring(secondSpace + 1);
+            if(name.contains("")){
+                int firstSpace =  name.indexOf(" ");
+                firstName = name.substring(0, firstSpace);
+                int secondSpace = name.indexOf(" ", firstSpace + 1);
+                middleName = name.substring(firstSpace + 1, secondSpace);
+                lastName = name.substring(secondSpace + 1);
+            }
         }
     }
     public String getFirstName(){
