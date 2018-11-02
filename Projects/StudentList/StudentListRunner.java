@@ -11,6 +11,7 @@ public class StudentListRunner extends StudentList
     static StudentList list = new StudentList();
     // instance variables - replace the example below with your own
     public static void main(){
+        clearScreen();
         StudentListRunner runner = new StudentListRunner();
         runner.giveList();
     }
@@ -39,7 +40,7 @@ public class StudentListRunner extends StudentList
                     runner.printStudentInput();
                 break;
                 case 5:
-
+                    runner.printAllStudents();
                 break;
             }
         }catch(InputMismatchException e){
@@ -115,11 +116,20 @@ public class StudentListRunner extends StudentList
         System.out.println("The info has been inputed");
         runner.giveList();
     }
+    public void printAllStudents(){
+        StudentListRunner runner = new StudentListRunner();
+        list.printList();
+        System.out.println("The info has been inputed");
+        runner.giveList();
+    }
     public void deleteStudentInput(){
         StudentListRunner runner = new StudentListRunner();
         Scanner pickFromList = new Scanner(System.in);
         System.out.print("what is the last name or number of the student that you want: ");
         list.deleteStudent(pickFromList.nextLine());
+        clearScreen();
+        System.out.println("The info has been inputed");
+        runner.giveList();
     }
     public void printStudentInput(){
         StudentListRunner runner = new StudentListRunner();
