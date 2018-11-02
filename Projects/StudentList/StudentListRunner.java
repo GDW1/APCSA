@@ -1,9 +1,8 @@
 
 /**
- * Write a description of class StudentListRunner here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * This class gets user input and parses it inot a student list
+ * @author Guy
+ * @version 1.0
  */
 import java.util.*;
 public class StudentListRunner extends StudentList
@@ -11,10 +10,13 @@ public class StudentListRunner extends StudentList
     static StudentList list = new StudentList();
     // instance variables - replace the example below with your own
     public static void main(){
+        clearScreen();
         StudentListRunner runner = new StudentListRunner();
         runner.giveList();
     }
-
+    /**
+     * this method can be run over and over to increase reusablility
+     */
     public void giveList(){
         StudentListRunner runner = new StudentListRunner();
         System.out.println("Pick an option from the list below\n 1 - Add Student \n 2 - Edit Student \n 3 - Delete Student \n 4 - Delete All Students \n 5 - Print one Student  \n 6 - Print All Students");
@@ -39,7 +41,7 @@ public class StudentListRunner extends StudentList
                     runner.printStudentInput();
                 break;
                 case 5:
-
+                    runner.printAllInput();
                 break;
             }
         }catch(InputMismatchException e){
@@ -50,7 +52,18 @@ public class StudentListRunner extends StudentList
             }
         }
     }
-
+    /**
+     * This prints every student
+     */
+    public void printAllInput(){
+        StudentListRunner runner = new StudentListRunner();
+        clearScreen();
+        list.printList();
+        runner.giveList();
+    }
+    /**
+     * This will ask for usr input and parse it into a student object in an arraylist 
+     */
     public void addStudentInput(){
         ArrayList<Student> currentList = list.mainList;
         StudentListRunner runner = new StudentListRunner();
@@ -65,7 +78,9 @@ public class StudentListRunner extends StudentList
         clearScreen();
         runner.giveList();
     }
-
+/**
+ * This will ask for a student and then a value to replace and will send it to the student list to parse
+ */
     public void editStudentInput(){
         StudentListRunner runner = new StudentListRunner();
         Scanner pickFromList = new Scanner(System.in);
@@ -115,12 +130,18 @@ public class StudentListRunner extends StudentList
         System.out.println("The info has been inputed");
         runner.giveList();
     }
+    /**
+     * This will ask for a student then delete it
+     */
     public void deleteStudentInput(){
         StudentListRunner runner = new StudentListRunner();
         Scanner pickFromList = new Scanner(System.in);
         System.out.print("what is the last name or number of the student that you want: ");
         list.deleteStudent(pickFromList.nextLine());
     }
+    /**
+     * This will ask for a student and then print the information for it
+     */
     public void printStudentInput(){
         StudentListRunner runner = new StudentListRunner();
         Scanner pickFromList = new Scanner(System.in);
@@ -133,6 +154,9 @@ public class StudentListRunner extends StudentList
             list.printStudent(name);
         }
     }
+    /**
+     * This will clear the screen
+     */
     public static void clearScreen() {  
         System.out.print("\u000C");  
     }
