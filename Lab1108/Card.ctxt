@@ -6,4 +6,6 @@ comment1.target=Card()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Card\r\n
 comment2.params=_rank\ _suit
 comment2.target=Card(int,\ java.lang.String)
-numComments=3
+comment3.params=
+comment3.target=int\ getRank()
+numComments=4

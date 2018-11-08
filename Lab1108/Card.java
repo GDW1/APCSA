@@ -21,4 +21,7 @@ public class Card
         rank = _rank;
         suit = _suit;
     }
+    public int getRank(){
+        return rank;
+    }
 }

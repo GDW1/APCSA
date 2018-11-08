@@ -37,7 +37,7 @@ public class Hand
         for(int i = 0; i < heldCards.size(); i++){
             if(i != (heldCards.size() -1)){
                 if(heldCards.get(i) == heldCards.get(i + 1)){
-                    ret = i;
+                    ret = Game.deck.getCard(i).getRank();
                 }
             }
         }
