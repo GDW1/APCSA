@@ -6,6 +6,7 @@
  * @version (a version number or a date)
  */
 import java.util.*;
+import java.io.*;
 public class StudentList
 {
     ArrayList<Student> mainList;
@@ -17,9 +18,15 @@ public class StudentList
         // initialise instance variables
         mainList = new ArrayList<Student>();
     }
+    /**
+     * this will make a student
+     */
     public void addStudent(String name, double gpa, int stuNumber){
         mainList.add(new Student(name, stuNumber, gpa));
     }
+    /**
+     * This will delete a student
+     */
     public void deleteStudent(String lastName){
         String tempLastName = lastName;
         for(int i = 0; i < mainList.size(); i++){
@@ -28,6 +35,9 @@ public class StudentList
             }
         }
     }
+    /**
+     * this will edit a student
+     */
     public void editStudentList(int number, String editedVar){
         int tempLastName = number;
         for(int i = 0; i < mainList.size(); i++){
@@ -36,6 +46,9 @@ public class StudentList
             }
         }
     }
+    /**
+     * this will also edit the student
+     */
     public void editStudentList(String name, String editedVar){
         String tempLastName = name;
         for(int i = 0; i < mainList.size(); i++){
@@ -44,6 +57,9 @@ public class StudentList
             }
         }
     }
+    /**
+     * this will also edit the student
+     */
     public void editStudentList(int number, int editedVar){
         int tempLastName = number;
         for(int i = 0; i < mainList.size(); i++){
@@ -52,6 +68,9 @@ public class StudentList
             }
         }
     }
+    /**
+     * this will also edit the student
+     */
     public void editStudentList(String name, int editedVar){
         String tempLastName = name;
         for(int i = 0; i < mainList.size(); i++){
@@ -68,6 +87,9 @@ public class StudentList
             }
         }
     }
+    /**
+     * this will also edit the student
+     */
     public void editStudentList(String name, double editedVar){
         String tempLastName = name;
         for(int i = 0; i < mainList.size(); i++){
@@ -76,14 +98,23 @@ public class StudentList
             }
         }
     }
+    /**
+     * this will delete all the student
+     */
     public void clearList(){
         mainList.clear();
     }
+    /**
+     * this will print the student
+     */
     public void printList(){
         for(int i = 0; i < mainList.size(); i++){
             System.out.println(mainList.get(i).getFirstName());
         }
     }
+    /**
+     * this will print the student
+     */
     public void printStudent(String name){
         String tempLastName = name;
         for(int i = 0; i < mainList.size(); i++){
@@ -92,6 +123,9 @@ public class StudentList
             }
         }
     }
+    /**
+     * this will print all the student
+     */
     public void printStudent(int number){
         int tempLastName = number;
         for(int i = 0; i < mainList.size(); i++){
