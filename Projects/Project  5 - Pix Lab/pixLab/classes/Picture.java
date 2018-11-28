@@ -203,6 +203,26 @@ public class Picture extends SimplePicture
       }
     } 
   }
+  /**Mirrors the arms of the snowman */
+  public void mirrorArms(){
+     Pixel[][] pixels = this.getPixels2D();
+     int rows = pixels.length;
+     int columns = pixels[0].length;
+     for(int i = 171; i < 212; i++){
+         for(int a = 239; a < 300; a ++){
+            if(i > (171 +((212-172)/2))){
+                pixels[i][a].setColor(pixels[i-((212-171)/2)][a].getColor()); 
+            }
+         }
+     }
+     for(int i = 171; i < 212; i++){
+         for(int a = 99; a < 170; a ++){
+            if(i > (171 +((212-172)/2))){
+                pixels[i][a].setColor(pixels[i-((212-171)/2)][a].getColor()); 
+            }
+         }
+     }
+  }
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -218,13 +238,14 @@ public class Picture extends SimplePicture
       // loop from 13 to just before the mirror point
       for (int col = 13; col < mirrorPoint; col++)
       {
-        
+        count++;
         leftPixel = pixels[row][col];      
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
       }
     }
+    System.out.println(count);
   }
   
   /** copy from the passed fromPic to the
