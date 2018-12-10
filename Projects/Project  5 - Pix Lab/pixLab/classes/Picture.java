@@ -278,7 +278,38 @@ public class Picture extends SimplePicture
       }
     }   
   }
-
+  public void copy(Picture fromPic, 
+                 int startRow, int startCol, int fromStartRow, int fromStartCol,int endRow, int endCol)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = fromStartRow, toRow = startRow; 
+         fromRow < endRow &&
+         toRow < toPixels.length; 
+         fromRow++, toRow++)
+    {
+      for (int fromCol = fromStartCol, toCol = startCol; fromCol < endCol && toCol < toPixels[0].length; fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+  }
+  public void mirrorSeagull(){
+      //231 -- 352 col
+      //220 -- 331 row
+      Pixel[][] pixels = this.getPixels2D();
+      for(int i = 220; i < (331); i++){
+        for(int a = 231; a < 472; a++){
+            if(a > ((472+231)/2)){
+                pixels[i][a].setColor(pixels[i][((472+231)/2) - (a - ((472+231)/2))].getColor()); 
+            }
+        }
+      }
+  }
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
@@ -323,7 +354,70 @@ public class Picture extends SimplePicture
     }
   }
   
-  
+  /** Method to show large changes in color 
+    * @param edgeDist the distance for finding edges
+    */
+  public void edgeDetectionVert(int edgeDist)
+  {
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor = null;
+    for (int row = 0; row < pixels.length-1; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row+1][col];
+        rightColor = rightPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > 
+            edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
+  }
+  /** Method to show large changes in color 
+    * @param edgeDist the distance for finding edges
+    */
+  public void edgeDetectionDiag(int edgeDist)
+  {
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor = null;
+    for (int row = 0; row < pixels.length-1; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length-1; col++)
+      {
+        int randA = (int)(Math.random()*255);
+                int randB = (int)(Math.random()*255);
+                        int randC = (int)(Math.random()*255);
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row+1][col+1];
+        rightColor = rightPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > 
+            edgeDist)
+           /*switch(rand){
+              case 0:
+                leftPixel.setColor(Color.RED);
+                break;
+              case 1:
+                leftPixel.setColor(Color.BLUE);
+                break;
+              case 2:
+                leftPixel.setColor(Color.YELLOW);
+                break;
+           }*/
+           leftPixel.setColor(new Color(randA, randB, randC));
+        else
+          leftPixel.setColor(Color.BLACK);
+      }
+    }
+  }
   /* Main method for testing - each class in Java can have a main 
    * method 
    */

@@ -76,8 +76,8 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
-    swan.edgeDetection(10);
+    Picture swan = new Picture("gu.jpg");
+    swan.edgeDetectionDiag(10);
     swan.explore();
   }
   public static void testMirrorArms(){
@@ -86,10 +86,20 @@ public class PictureTester
     snowman.explore();
   }
   public static void seagullTester(){
-       Picture snowman = new Picture("seagull.jpg");
-    snowman.mirrorArms();
+    Picture snowman = new Picture("seagull.jpg");
+    snowman.mirrorSeagull();
     snowman.explore();
-    }
+  }
+  public static void testCopy(){
+    Picture snowman = new Picture("640x480.jpg");
+    Picture stardust = new Picture("ZiggyStardust.jpg");
+    Picture theDoof = new Picture("theDoof.jpg");
+    Picture wizard = new Picture("Wizard.jpg");
+    snowman.copy(stardust, 0, 300, 70, 70, 300, 300);
+    snowman.copy(theDoof, 200, 100, 300, 300, 700, 500);
+    snowman.copy(wizard, 0, 0, 0, 0, 300, 300);
+    snowman.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -108,12 +118,12 @@ public class PictureTester
     // testFixUnderwater();
     // testMirrorVertical();
     // testMirrorTemple();
-     testMirrorArms();
-    // testMirrorGull();
+    // testMirrorArms();
+    // seagullTester();
     // testMirrorDiagonal();
     // testCollage();
     // testCopy();
-    // testEdgeDetection();
+     testEdgeDetection();
     // testEdgeDetection2();
     // testChromakey();
     // testEncodeAndDecode();
